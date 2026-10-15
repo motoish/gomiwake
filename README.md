@@ -1,57 +1,40 @@
 # Gomiwake
 
-**Tokorozawa garbage collection days, in the calendar you already use.**
+Tokorozawa garbage collection days, in your calendar.<br>
+所沢市のごみの日を、いつものカレンダーに。
 
-Gomiwake turns verified district collection schedules for Tokorozawa, Saitama into read-only iCalendar subscriptions. A small Japanese website lists published calendars for Apple Calendar, Google Calendar, and other calendar apps, with Issue and PR links for contributing Tokorozawa districts. Other municipalities are out of scope.
+[Open Gomiwake](https://calendar.motoish.dev) · [Contributing](CONTRIBUTING.md) · [Report an error](https://github.com/motoish/gomiwake/issues/new?template=schedule.yml)
 
-所沢市のごみの日を、いつものカレンダーに。公開済みの地区別収集日程を照会できます。所沢市内の地区追加はIssueやPRからご提案ください。アプリの追加・ログイン・住所の入力は不要です。
-
-[Usage](#usage--使い方) · [Contributing](CONTRIBUTING.md) 
-
-## Features
-
-- Static HTML and CSS with a small clipboard script; TypeScript for validation and build tools.
-- Tokorozawa districts grouped by kana, with one-click copying of subscription URLs and manual links as a fallback.
-- Nine separately modeled Tokorozawa categories, including clothing, small appliances, crushed waste, and hazardous waste.
-- Explicit collection dates with holiday exceptions, multiple categories per day, and Japanese all-day events.
-- Stable district URLs and event UIDs across annual updates; deterministic builds.
-- No database, authentication, runtime generation, analytics, or location tracking.
-- Build-time checks for complete dates, categories, identifiers, verification, and publication eligibility.
-
-## Areas & data status
-
-**No production calendars are published yet.** Areas under review are private and are not listed on the website. Only approved, intentionally published districts appear as available.
-
-The [official collection-calendar pages](https://www.city.tokorozawa.saitama.jp/kurashi/gomi/nittei/) provide district schedules as PDFs. Official CSV, JSON, or iCalendar data was not found in the municipal collection-calendar pages checked on October 15, 2026. Neither the city's [copyright policy](https://www.city.tokorozawa.saitama.jp/aboutweb/copyrightpolicy.html) nor its [open-data information](https://www.city.tokorozawa.saitama.jp/shiseijoho/data/opendata20190517.html) establishes that this calendar is licensed for redistribution. Applicability remains unconfirmed; this is a publication hold, not a conclusion about legal rights in individual facts.
-
-Real schedule records awaiting permission remain outside version control in `.local/`. Official PDFs and images are not included. Private area names, source links, and review notes also belong in ignored `.local/` files; keep the public `data/pending.json` empty. Pending metadata is never included in static output. Synthetic schedules live under `test/fixtures/` and are rejected by production builds. Adding a verified, permission-cleared schedule under `data/schedules/` enables that district automatically. Category labels in `data/categories/` are displayed separately; they contain no districts or collection dates and do not imply that a subscription is available.
+**Coverage:** 86 Tokorozawa collection districts, April 1, 2026 – March 31, 2027.
 
 ## Usage / 使い方
 
-After deployment, browse published Tokorozawa districts by kana on **https://calendar.motoish.dev**. Click a district name to copy its HTTPS subscription URL, then paste it into your calendar app. If copying is unavailable, open リンク・収録期間・出典 to copy the URL manually. Request a Tokorozawa district through an Issue or contribute verified data through a PR. This domain is the intended deployment target, not a confirmed live service.
+1. Open [calendar.motoish.dev](https://calendar.motoish.dev) and find your district in the kana index.
+2. Click the district name to copy its subscription URL.
+3. Paste the URL into your calendar app:
 
-年度を含まないURLを照会するため、新年度も同じURLを使えます。以下は未公開のURL形式の例です。
+| Calendar | Where to add the URL |
+| --- | --- |
+| [Apple Calendar (Mac)](https://support.apple.com/guide/calendar/subscribe-to-calendars-icl1022/mac) | File → New Calendar Subscription |
+| [Apple Calendar (iPhone / iPad)](https://support.apple.com/en-ph/102301) | Calendars → Add Calendar → Add Subscription Calendar |
+| [Google Calendar (web)](https://support.google.com/calendar/answer/37100?hl=en) | Other calendars → + → From URL |
 
-```text
-https://calendar.motoish.dev/tokorozawa/example-district.ics
-webcal://calendar.motoish.dev/tokorozawa/example-district.ics
-```
+地区名を押してURLをコピーし、カレンダーアプリの照会・URL追加に貼り付けてください。コピーできない場合は「リンク・収録期間・出典」から手動でコピーできます。
 
-- **Apple Calendar:** 対応エリアの「Apple Calendarで照会」を選び、アプリ内で追加します。Macでは「ファイル → 新規照会カレンダー」にHTTPS URLを入力できます。iPhoneでは「カレンダー → カレンダーを追加 → 照会カレンダーを追加」を使います。[Appleの手順](https://support.apple.com/guide/calendar/icl1022/mac)
-- **Google Calendar:** パソコンで「他のカレンダー」の「＋ → URLで追加」を開き、HTTPS URLを入力します。[Googleの手順](https://support.google.com/calendar/answer/37100?hl=ja)
+Subscribe by URL to receive published corrections and annual updates. Downloading and importing a file is a one-time copy. Refresh timing depends on your calendar app.
 
-ファイルの単発読み込みではなく、URLで照会してください。反映は各カレンダーアプリの取得間隔によります。リンクを開くだけでは購読は完了しません。カレンダーアプリ内で照会を追加してください。
+## Features
 
-## Contributing schedules
+- Nine collection categories with icons and Japanese all-day events.
+- Explicit dates, including holiday and year-end changes, with one stable URL per district.
+- No login, address entry, or location tracking.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the schema and review checklist. Production data is limited to Tokorozawa districts and the city's category definitions. The loader rejects schedules, pending areas, and category profiles for other municipalities. Confirm both schedule accuracy and redistribution terms before adding actual collection dates to the public repository.
+## Contributing
 
-Each yearly file declares its exact coverage and lists every day, including empty collection days. Separate files for the same district combine into one calendar; overlapping coverage is rejected. Verified history can remain, gaps and future periods stay empty, and corrections replace records rather than adding another copy. Change the verification date when correcting data. Keep municipality, district, and category IDs stable so existing event UIDs survive display-name changes.
-
-CI runs on pull requests, pushes to `main`, and manual dispatch. It installs from the lockfile, runs all checks and a second timezone test, and uploads `dist/` as an artifact. There are no scheduled runs, automatic commits, or deployment credentials.
+Tokorozawa districts only. Report missing areas or incorrect dates through an [Issue](https://github.com/motoish/gomiwake/issues), or contribute verified schedules through a PR. Include the official source and check redistribution terms; see [CONTRIBUTING.md](CONTRIBUTING.md). Do not include home addresses or personal information.
 
 ## License & accuracy
 
-Original source code and synthetic test fixtures are [MIT licensed](LICENSE). Municipal data, if later added, retains its documented source terms and is not automatically relicensed as MIT. Reproduce collection facts only where the applicable terms permit it; do not copy PDF layouts or artwork.
+Code and synthetic test data are [MIT licensed](LICENSE). Municipal data retains its source terms. Dates come from the [official Tokorozawa calendars](https://www.city.tokorozawa.saitama.jp/kurashi/gomi/nittei/); source PDFs and images are not included.
 
-Gomiwake is independent and is **not an official municipal service**. Confirm important collection details with your municipality and collection-point notices. Report errors using the [schedule issue form](https://github.com/motoish/gomiwake/issues/new?template=schedule.yml); include the date, category, and official source, but no street address or personal information.
+Gomiwake is an independent project, not an official city service. Confirm changes with city announcements and collection-point notices.
