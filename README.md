@@ -6,19 +6,7 @@ Gomiwake turns verified district collection schedules for Tokorozawa, Saitama in
 
 所沢市のごみの日を、いつものカレンダーに。公開済みの地区別収集日程を照会できます。所沢市内の地区追加はIssueやPRからご提案ください。アプリの追加・ログイン・住所の入力は不要です。
 
-[Usage](#usage--使い方) · [Development](#development) · [Contributing](CONTRIBUTING.md) · [Deployment](#cloudflare-pages)
-
-## Development
-
-Requires **Bun 1.4.3 or newer**. The package manager and runtime are Bun; the tested version is pinned in `package.json`. No runtime packages are needed; development dependencies are TypeScript, Node type definitions, and Biome.
-
-```sh
-bun install --frozen-lockfile
-bun run check  # format, lint, types, tests, data validation, static build
-bun run dev    # preview the built dist/ at http://127.0.0.1:4173
-```
-
-Run `bun run build` before previewing changes. `bun run format` formats source files; `bun run validate` checks production data; `bun run generate` is an alias for the full static build. Output is always `dist/`, including the website, `_headers`, a real `404.html`, and eligible calendars. No fixture-preview or permission-bypass mode exists in the production CLI.
+[Usage](#usage--使い方) · [Contributing](CONTRIBUTING.md) 
 
 ## Features
 
@@ -61,28 +49,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the schema and review checklist. Prod
 Each yearly file declares its exact coverage and lists every day, including empty collection days. Separate files for the same district combine into one calendar; overlapping coverage is rejected. Verified history can remain, gaps and future periods stay empty, and corrections replace records rather than adding another copy. Change the verification date when correcting data. Keep municipality, district, and category IDs stable so existing event UIDs survive display-name changes.
 
 CI runs on pull requests, pushes to `main`, and manual dispatch. It installs from the lockfile, runs all checks and a second timezone test, and uploads `dist/` as an artifact. There are no scheduled runs, automatic commits, or deployment credentials.
-
-## Cloudflare Pages
-
-Create resources manually after reviewing the output:
-
-| Setting | Value |
-| --- | --- |
-| Repository | `motoish/gomiwake` (public, once you choose to publish it) |
-| Framework preset | None |
-| Production branch | `main` |
-| Build command | `bun install --frozen-lockfile && bun run build` |
-| Build output directory | `dist` |
-| Bun version | `1.4.3` (`BUN_VERSION=1.4.3`) |
-| Dependency installation | `SKIP_DEPENDENCY_INSTALL=1`; build command installs with Bun |
-| Application secrets | None |
-| Custom domain | `calendar.motoish.dev` |
-
-Set `BUN_VERSION=1.4.3` and `SKIP_DEPENDENCY_INSTALL=1` for production and preview builds so dependency installation uses the explicit Bun command above. See the [Pages build image settings](https://developers.cloudflare.com/pages/configuration/build-image/).
-
-Use [Pages Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/) for builds on push. Under **Custom domains**, add `calendar.motoish.dev` and follow [Cloudflare's DNS instructions](https://developers.cloudflare.com/pages/configuration/custom-domains/). Keep the existing `motoish.dev` site separate. No cloud resources or remote repositories are created by this project.
-
-`_headers` serves `.ics` as `text/calendar; charset=utf-8` with a one-hour cache lifetime and revalidation. Once a district is approved and deployed, check its URL with `curl -i`: expect HTTP 200, the calendar content type, and `BEGIN:VCALENDAR`, then test an actual subscription. Unpublished paths must return 404, not the site's HTML with HTTP 200. The public domain, Cloudflare header behavior, and calendar-client subscriptions have not yet been tested on a deployed service.
 
 ## License & accuracy
 
