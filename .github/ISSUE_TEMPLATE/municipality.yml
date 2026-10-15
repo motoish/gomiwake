@@ -1,12 +1,12 @@
-name: Municipality request / 自治体の追加
-description: Request support for a municipality or collection district.
+name: Tokorozawa district request / 所沢市の地区追加
+description: Request a collection district within Tokorozawa, Saitama. Other municipalities are out of scope.
 title: '[Area] '
 body:
   - type: input
     id: area
     attributes:
-      label: Prefecture, municipality, district / 都道府県・自治体・地区
-      description: Do not include a street address or personal information.
+      label: Tokorozawa collection district / 所沢市の収集地区
+      description: Only districts within Tokorozawa, Saitama. Do not include a street address or personal information.
     validations:
       required: true
   - type: input

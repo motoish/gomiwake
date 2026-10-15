@@ -1,10 +1,10 @@
 # Gomiwake
 
-**Garbage collection days, in the calendar you already use.**
+**Tokorozawa garbage collection days, in the calendar you already use.**
 
-Gomiwake turns verified Japanese municipal collection schedules into read-only iCalendar subscriptions. A small Japanese website lists published calendars for Apple Calendar, Google Calendar, and other calendar apps, with Issue and PR links for contributing new areas.
+Gomiwake turns verified district collection schedules for Tokorozawa, Saitama into read-only iCalendar subscriptions. A small Japanese website lists published calendars for Apple Calendar, Google Calendar, and other calendar apps, with Issue and PR links for contributing Tokorozawa districts. Other municipalities are out of scope.
 
-ごみの日を、いつものカレンダーに。公開済みの収集日程を照会できます。対応エリアの追加はIssueやPRからご提案ください。アプリの追加・ログイン・住所の入力は不要です。
+所沢市のごみの日を、いつものカレンダーに。公開済みの地区別収集日程を照会できます。所沢市内の地区追加はIssueやPRからご提案ください。アプリの追加・ログイン・住所の入力は不要です。
 
 [Usage](#usage--使い方) · [Development](#development) · [Contributing](CONTRIBUTING.md) · [Deployment](#cloudflare-pages)
 
@@ -23,7 +23,7 @@ Run `bun run build` before previewing changes. `bun run format` formats source f
 ## Features
 
 - Static HTML and CSS with a small clipboard script; TypeScript for validation and build tools.
-- Districts grouped by municipality and kana, with one-click copying of subscription URLs and manual links as a fallback.
+- Tokorozawa districts grouped by kana, with one-click copying of subscription URLs and manual links as a fallback.
 - Nine separately modeled Tokorozawa categories, including clothing, small appliances, crushed waste, and hazardous waste.
 - Explicit collection dates with holiday exceptions, multiple categories per day, and Japanese all-day events.
 - Stable district URLs and event UIDs across annual updates; deterministic builds.
@@ -40,13 +40,13 @@ Real schedule records awaiting permission remain outside version control in `.lo
 
 ## Usage / 使い方
 
-After deployment, browse published districts by municipality and kana on **https://calendar.motoish.dev**. Click a district name to copy its HTTPS subscription URL, then paste it into your calendar app. If copying is unavailable, open リンク・収録期間・出典 to copy the URL manually. Request an area through an Issue or contribute verified data through a PR. This domain is the intended deployment target, not a confirmed live service.
+After deployment, browse published Tokorozawa districts by kana on **https://calendar.motoish.dev**. Click a district name to copy its HTTPS subscription URL, then paste it into your calendar app. If copying is unavailable, open リンク・収録期間・出典 to copy the URL manually. Request a Tokorozawa district through an Issue or contribute verified data through a PR. This domain is the intended deployment target, not a confirmed live service.
 
 年度を含まないURLを照会するため、新年度も同じURLを使えます。以下は未公開のURL形式の例です。
 
 ```text
-https://calendar.motoish.dev/example-municipality/example-district.ics
-webcal://calendar.motoish.dev/example-municipality/example-district.ics
+https://calendar.motoish.dev/tokorozawa/example-district.ics
+webcal://calendar.motoish.dev/tokorozawa/example-district.ics
 ```
 
 - **Apple Calendar:** 対応エリアの「Apple Calendarで照会」を選び、アプリ内で追加します。Macでは「ファイル → 新規照会カレンダー」にHTTPS URLを入力できます。iPhoneでは「カレンダー → カレンダーを追加 → 照会カレンダーを追加」を使います。[Appleの手順](https://support.apple.com/guide/calendar/icl1022/mac)
@@ -56,7 +56,7 @@ webcal://calendar.motoish.dev/example-municipality/example-district.ics
 
 ## Contributing schedules
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the schema and review checklist. New municipalities define their own category names in JSON, without changing the generator. Confirm both schedule accuracy and redistribution terms before adding actual collection dates to the public repository.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the schema and review checklist. Production data is limited to Tokorozawa districts and the city's category definitions. The loader rejects schedules, pending areas, and category profiles for other municipalities. Confirm both schedule accuracy and redistribution terms before adding actual collection dates to the public repository.
 
 Each yearly file declares its exact coverage and lists every day, including empty collection days. Separate files for the same district combine into one calendar; overlapping coverage is rejected. Verified history can remain, gaps and future periods stay empty, and corrections replace records rather than adding another copy. Change the verification date when correcting data. Keep municipality, district, and category IDs stable so existing event UIDs survive display-name changes.
 

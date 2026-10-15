@@ -2,12 +2,14 @@
 
 Small, source-backed contributions are welcome. Run `bun install --frozen-lockfile` and `bun run check` before submitting changes. Use `bun run format` to format source. Keep this project static and dependency-light.
 
-## Add a municipality or district
+## Add a Tokorozawa district
+
+This project covers only districts within Tokorozawa, Saitama. Other municipalities are out of scope. Production schedules and pending records must use prefecture ID `saitama` and municipality ID `tokorozawa`; category profiles must use municipality ID `tokorozawa`.
 
 1. Find the official schedule and investigate official structured data first. Do not infer weekly rules or parse PDF calendars automatically.
 2. Verify that redistribution is permitted for **this dataset**. Record the terms URL, review date, and evidence. A municipality's participation in an open-data portal alone is insufficient.
 3. If permission is unclear, keep all research, including area names, source links, and review notes, under ignored `.local/`. Keep the public `data/pending.json` empty. Do not add actual collection dates, official PDFs, or screenshots to the public repository. Unpublished district details can reveal contributors’ home areas and must not appear in documentation or URL examples.
-4. Once terms and dates are confirmed, add a JSON file under `data/schedules/{municipality}/{district}-{year}.json`. The build discovers all JSON files in this directory recursively. Never copy a test fixture into production.
+4. Once terms and dates are confirmed, add a JSON file under `data/schedules/tokorozawa/{district}-{year}.json`. The build discovers all JSON files in this directory recursively. Never copy a test fixture into production.
 5. Compare every date and collection category against the official source, including year-end closures, holidays, and blank cells. Record no-collection days with `categories: []` so missing dates can be detected. A second reviewer is encouraged.
 6. Run all checks and inspect the generated calendar, website attribution, coverage, and stable path. Provide source URLs and the verification method in your contribution.
 
@@ -16,8 +18,8 @@ Use the following shape. This is deliberately incomplete metadata, not publishab
 ```json
 {
   "kind": "official",
-  "prefecture": { "id": "prefecture-id", "name": "都道府県名" },
-  "municipality": { "id": "municipality-id", "name": "自治体名" },
+  "prefecture": { "id": "saitama", "name": "埼玉県" },
+  "municipality": { "id": "tokorozawa", "name": "所沢市" },
   "district": {
     "id": "district-id",
     "name": "収集地区名",
@@ -65,7 +67,7 @@ The empty `days` array above must be replaced with the entire declared period. E
 | `crushed` | 破砕ごみ類 |
 | `hazardous` | 有害ごみ |
 
-Copy the applicable definitions into the schedule's `categories` map. Keep clothing and small appliances separate, and crushed waste and hazardous waste separate, even when the official calendar collects them together. Put both IDs on that date to generate distinct events. Never infer dates from the category list. New municipality category profiles can be added under `data/categories/`; include `municipality`, `sourceUrl`, `reviewedAt`, and `categories` as in the existing profile.
+Copy the applicable definitions into the schedule's `categories` map. Keep clothing and small appliances separate, and crushed waste and hazardous waste separate, even when the official calendar collects them together. Put both IDs on that date to generate distinct events. Never infer dates from the category list. Update the existing Tokorozawa category profile when official definitions change; include the source and review date.
 
 IDs use lowercase ASCII letters, numbers, and single hyphens, without leading/trailing hyphens (maximum 80 characters). Municipality IDs are globally unique because they form public paths; district IDs are unique within a municipality. The build rejects conflicting names/parents, overlapping periods, duplicate events/dates, unknown categories, unsafe URLs, invalid dates, missing coverage, and unverified schedules. Type declarations and runtime checks live in `src/calendar.ts`.
 
@@ -79,4 +81,4 @@ For a correction, edit the original day's category list and update `verification
 
 ## Report problems
 
-Use the GitHub issue forms for new municipalities, incorrect schedules, or bugs. For incorrect dates, link the official source and specify the district, date, expected category, and observed category. Do not include home addresses or location data.
+Use the GitHub issue forms for additional Tokorozawa districts, incorrect schedules, or bugs. For incorrect dates, link the official source and specify the district, date, expected category, and observed category. Do not include home addresses or location data.

@@ -180,6 +180,15 @@ export async function loadData(
     );
   }
   validateCategoryProfiles(categoryProfiles);
+  if (
+    [...(schedules as Schedule[]), ...pending].some(
+      (area) =>
+        area.prefecture.id !== "saitama" ||
+        area.municipality.id !== "tokorozawa",
+    ) ||
+    categoryProfiles.some((profile) => profile.municipality.id !== "tokorozawa")
+  )
+    throw new Error("Only Saitama/Tokorozawa data is supported");
   return { schedules: schedules as Schedule[], pending, categoryProfiles };
 }
 export async function buildSite(
