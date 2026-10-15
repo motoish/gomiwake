@@ -1,0 +1,32 @@
+{
+  "name": "gomiwake",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "bun": ">=1.4.3"
+  },
+  "scripts": {
+    "format": "bun run --bun biome format --write .",
+    "format:check": "bun run --bun biome format .",
+    "lint": "bun run --bun biome lint .",
+    "typecheck": "bun run --bun tsc --noEmit",
+    "test": "bun test",
+    "validate": "bun src/cli.ts validate",
+    "generate": "bun scripts/build.ts",
+    "build": "bun scripts/build.ts",
+    "dev": "bun scripts/preview.ts",
+    "check": "bun run format:check && bun run lint && bun run typecheck && bun test && bun run validate && bun run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  },
+  "description": "Static Japanese municipal garbage collection calendar subscriptions.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/motoish/gomiwake.git"
+  },
+  "packageManager": "bun@1.4.3"
+}

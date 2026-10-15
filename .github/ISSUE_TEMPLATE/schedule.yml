@@ -1,0 +1,29 @@
+name: Incorrect schedule / 日程の誤り
+description: Report a date or collection category that differs from the official schedule.
+title: '[Schedule] '
+body:
+  - type: input
+    id: district
+    attributes:
+      label: Municipality and district or subscription URL / 自治体・地区・購読URL
+      description: Do not include your home address.
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date / 日付 (YYYY-MM-DD)
+    validations:
+      required: true
+  - type: textarea
+    id: difference
+    attributes:
+      label: Expected and actual categories / 正しい区分と表示された区分
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official source URL / 公式の根拠URL
+    validations:
+      required: true

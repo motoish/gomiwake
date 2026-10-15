@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img">
+  <title>Gomiwake</title>
+  <rect width="40" height="40" fill="#fff" />
+  <path
+    d="M11 14h18M16 10h8m-11 4 2 17h10l2-17M18 18v9m4-9v9"
+    fill="none"
+    stroke="#000"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

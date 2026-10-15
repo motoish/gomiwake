@@ -1,0 +1,22 @@
+name: Municipality request / 自治体の追加
+description: Request support for a municipality or collection district.
+title: '[Area] '
+body:
+  - type: input
+    id: area
+    attributes:
+      label: Prefecture, municipality, district / 都道府県・自治体・地区
+      description: Do not include a street address or personal information.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official schedule URL / 公式日程のURL
+    validations:
+      required: true
+  - type: textarea
+    id: terms
+    attributes:
+      label: Structured data and redistribution terms / 機械可読データ・利用条件
+      description: Link applicable terms if known; otherwise say unconfirmed.

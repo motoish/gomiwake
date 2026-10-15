@@ -1,0 +1,92 @@
+:root {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    sans-serif;
+  color-scheme: light;
+  color: #000;
+  background: #fff;
+  line-height: 1.7;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  max-width: 760px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+a,
+a:visited {
+  color: #000;
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.brand {
+  font-weight: bold;
+}
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+}
+h2 {
+  font-size: 1.125rem;
+  margin: 0 0 0.75rem;
+}
+h3 {
+  font-size: 1rem;
+  margin: 1rem 0 0.5rem;
+}
+p {
+  margin: 0.75rem 0;
+}
+section,
+aside {
+  margin: 2rem 0;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+ul {
+  padding-left: 1.25rem;
+}
+li {
+  margin: 0.25rem 0;
+}
+.supported li {
+  overflow-wrap: anywhere;
+}
+.supported li > * {
+  display: block;
+}
+.instructions-grid article + article {
+  margin-top: 1.5rem;
+}
+footer {
+  margin-top: 2rem;
+}
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  background: #fff;
+}
+.skip:focus {
+  top: 0;
+}

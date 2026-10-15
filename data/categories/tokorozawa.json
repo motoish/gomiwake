@@ -1,0 +1,16 @@
+{
+  "municipality": { "id": "tokorozawa", "name": "所沢市" },
+  "sourceUrl": "https://www.city.tokorozawa.saitama.jp/kurashi/gomi/gomidashikata/kateinosigentogomiwakedasi23.html",
+  "reviewedAt": "2026-10-15",
+  "categories": {
+    "clothing": "古着・古布",
+    "appliances": "小型家電製品",
+    "containers": "びん・かん・スプレー缶",
+    "plastic": "容器包装プラスチック",
+    "paper": "新聞・雑誌・雑がみ・段ボール",
+    "pet": "ペットボトル",
+    "burnable": "燃やせるごみ",
+    "crushed": "破砕ごみ類",
+    "hazardous": "有害ごみ"
+  }
+}
