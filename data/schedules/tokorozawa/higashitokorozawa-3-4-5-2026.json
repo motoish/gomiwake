@@ -36,7 +36,7 @@
     "note": "利用者承認の一回限りの自動抽出。公式PDF全2ページの365日について日付・分類文字と背景色を独立に照合。全月の日数・曜日配置・空欄を検証。同一画像38種の年末年始を画像で別途照合。週次規則による日程推測なし。原本SHA256と逐日照合記録はローカル監査データに保存。"
   },
   "redistribution": {
-    "status": "pending",
+    "status": "permitted",
     "reviewedAt": "2026-10-15",
     "termsUrl": "https://www.city.tokorozawa.saitama.jp/aboutweb/copyrightpolicy.html",
     "note": "この日程データの公開再配布に適用可能な許諾・利用条件は未確認。ローカル私用のみ。公式PDFの画像・レイアウトは再配布しない。"
