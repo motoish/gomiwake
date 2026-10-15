@@ -170,12 +170,12 @@ test("pending districts stay private in every public build artifact", async () =
   }
 });
 
-test("static homepage offers Issue and PR contribution links without district selectors or JavaScript", async () => {
+test("homepage keeps Issue and PR contribution links without district selectors", async () => {
   const dir = await mkdtemp(join(tmpdir(), "gomiwake-build-"));
   try {
     await buildSite([], [], dir);
     const page = await readFile(join(dir, "index.html"), "utf8");
-    assert.ok(!/<select\b|<script\b/i.test(page));
+    assert.ok(!/<select\b/i.test(page));
     assert.match(
       page,
       /https:\/\/github.com\/motoish\/gomiwake\/issues\/new\?template=municipality.yml/,
@@ -183,8 +183,91 @@ test("static homepage offers Issue and PR contribution links without district se
     assert.match(page, /https:\/\/github.com\/motoish\/gomiwake\/compare/);
     assert.match(page, /Issueでリクエスト/);
     assert.match(page, /PRで追加する/);
-    const files = await readdir(dir, { recursive: true });
-    assert.ok(!files.some((file) => file.endsWith(".js")));
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test("published districts are grouped by municipality and kana with matching copy URLs and manual links", async () => {
+  const areas = [
+    { id: "z-asahi", name: "朝日地区", reading: "あさひ", group: "あ行" },
+    { id: "a-aoi", name: "葵地区", reading: "あおい", group: "あ行" },
+    { id: "kasumi", name: "霞地区", reading: "かすみ", group: "か・き" },
+    { id: "kozue", name: "梢地区", reading: "ゴズエ", group: "く・け・こ" },
+    { id: "sakura", name: "桜地区", reading: "さくら", group: "さ行" },
+    { id: "natsu", name: "夏地区", reading: "なつ", group: "た行・な行" },
+    { id: "bara", name: "薔薇地区", reading: "ばら", group: "は行" },
+    { id: "midori", name: "緑地区", reading: "みどり", group: "ま行" },
+    { id: "yama", name: "山地区", reading: "やま", group: "や行・わ行" },
+    { id: "ringo", name: "林檎地区", reading: "りんご", group: "ら行" },
+    { id: "unknown", name: "読未確認地区", group: "その他" },
+  ];
+  const schedules = areas.map(({ group: _group, ...district }) => ({
+    ...approved(),
+    district,
+  }));
+  const secondYear = structuredClone(schedules[0]!);
+  secondYear.source.start = "2028-01-01";
+  secondYear.source.end = "2028-01-01";
+  secondYear.days = [{ date: "2028-01-01", categories: ["pet"] }];
+  const anotherCity = structuredClone(schedules[0]!);
+  anotherCity.municipality = { id: "another-city", name: "別のテスト市" };
+  const privateArea = approved();
+  privateArea.district = { id: "private-area", name: "非公開地区" };
+  privateArea.redistribution.status = "pending";
+  const dir = await mkdtemp(join(tmpdir(), "gomiwake-build-"));
+  try {
+    const inputs = [...schedules, secondYear, anotherCity, privateArea];
+    await buildSite(inputs, [], dir);
+    const page = await readFile(join(dir, "index.html"), "utf8");
+    const groups = [
+      ...page.matchAll(
+        /<h4 id="([^"]+)">([^<]+)<\/h4><ul class="district-list">([\s\S]*?)<\/ul>/g,
+      ),
+    ];
+    assert.deepEqual(
+      groups
+        .filter((match) => match[1]!.startsWith("areas-sample-city-"))
+        .map((match) => match[2]),
+      [
+        "あ行",
+        "か・き",
+        "く・け・こ",
+        "さ行",
+        "た行・な行",
+        "は行",
+        "ま行",
+        "や行・わ行",
+        "ら行",
+        "その他",
+      ],
+    );
+    for (const area of areas) {
+      const group = groups.find(
+        (match) =>
+          match[1]!.startsWith("areas-sample-city-") && match[2] === area.group,
+      );
+      assert.ok(group?.[3]?.includes(area.name));
+      const url = `https://calendar.motoish.dev/sample-city/${area.id}.ics`;
+      assert.equal(page.split(`data-calendar-url="${url}"`).length - 1, 1);
+      assert.ok(page.includes(`readonly value="${url}"`));
+    }
+    const aGroup = groups.find(
+      (match) => match[1] === "areas-sample-city-a",
+    )![3]!;
+    assert.ok(aGroup.indexOf("葵地区") < aGroup.indexOf("朝日地区"));
+    assert.ok(page.includes('id="areas-another-city-a"'));
+    assert.ok(page.includes('href="#areas-sample-city-a"'));
+    assert.ok(page.includes('role="status"'));
+    assert.ok(page.includes('href="https://example.com/synthetic-schedule"'));
+    assert.ok(page.includes("2028-01-01〜2028-01-01"));
+    assert.ok(!page.includes("非公開地区"));
+    assert.ok(!page.includes("private-area"));
+    const script = page.match(/<script src="([^"]+)" defer><\/script>/)?.[1];
+    assert.ok(script);
+    assert.ok((await readFile(join(dir, script), "utf8")).length > 0);
+    await buildSite(inputs.reverse(), [], dir);
+    assert.equal(await readFile(join(dir, "index.html"), "utf8"), page);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

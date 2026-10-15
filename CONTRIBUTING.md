@@ -18,7 +18,11 @@ Use the following shape. This is deliberately incomplete metadata, not publishab
   "kind": "official",
   "prefecture": { "id": "prefecture-id", "name": "都道府県名" },
   "municipality": { "id": "municipality-id", "name": "自治体名" },
-  "district": { "id": "district-id", "name": "収集地区名" },
+  "district": {
+    "id": "district-id",
+    "name": "収集地区名",
+    "reading": "しゅうしゅうちくめい"
+  },
   "categories": { "burnable": "🔥 自治体が定める正式区分名" },
   "instructions": "自治体が定めるごみ出し時刻など",
   "source": {
@@ -42,6 +46,8 @@ Use the following shape. This is deliberately incomplete metadata, not publishab
 ```
 
 The empty `days` array above must be replaced with the entire declared period. Each record has `date: "YYYY-MM-DD"` and `categories: ["category-id"]`. An empty category list is valid only for a verified no-collection day. Every nonempty list can include several distinct categories. Labels must match official Japanese category names; optional emoji may precede them.
+
+`district.reading` is the district's verified reading in hiragana or katakana (no spaces or punctuation). It is optional for existing data; without it, the district appears under その他. The website groups published districts by municipality and reading, following Tokorozawa's kana index. Add the same reading to annual files for the same district; conflicting readings are rejected. Clicking a district name copies its stable HTTPS subscription URL. Manual links remain available when JavaScript or clipboard access is unavailable.
 
 ### Tokorozawa categories
 

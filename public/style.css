@@ -50,6 +50,10 @@ h3 {
   font-size: 1rem;
   margin: 1rem 0 0.5rem;
 }
+h4 {
+  font-size: 1rem;
+  margin: 1rem 0 0.5rem;
+}
 p {
   margin: 0.75rem 0;
 }
@@ -69,11 +73,50 @@ ul {
 li {
   margin: 0.25rem 0;
 }
-.supported li {
+.district {
+  margin-bottom: 1rem;
   overflow-wrap: anywhere;
 }
-.supported li > * {
+.copy-calendar {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #000;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.copy-calendar:hover {
+  text-decoration-thickness: 2px;
+}
+.kana-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0;
+  list-style: none;
+}
+.district-group {
+  margin: 1.5rem 0;
+}
+[data-copy-status] {
   display: block;
+}
+.district-links summary {
+  cursor: pointer;
+}
+.district-links input {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  font: inherit;
 }
 .instructions-grid article + article {
   margin-top: 1.5rem;

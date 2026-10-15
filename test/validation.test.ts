@@ -77,3 +77,19 @@ test("calendar paths are fiscal-year independent and municipality-scoped", () =>
   data.municipality.id = "another-city";
   assert.equal(calendarPath(data), "/another-city/sample-district.ics");
 });
+
+test("district readings reject invalid metadata and conflicts across years", () => {
+  for (const reading of ["", 42, "漢字", "<script>"]) {
+    const data: any = fixture();
+    data.district.reading = reading;
+    assert.throws(() => validate(data), /reading/i);
+  }
+  const first: any = fixture();
+  first.district.reading = "あおい";
+  const second = structuredClone(first);
+  second.source.start = "2028-01-01";
+  second.source.end = "2028-01-01";
+  second.days = [{ date: "2028-01-01", categories: ["pet"] }];
+  second.district.reading = "かすみ";
+  assert.throws(() => groupSchedules([first, second]), /Conflicting/);
+});

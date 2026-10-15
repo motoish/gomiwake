@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 export interface Area {
   prefecture: { id: string; name: string };
   municipality: { id: string; name: string };
-  district: { id: string; name: string };
+  district: { id: string; name: string; reading?: string };
 }
 export interface Schedule extends Area {
   kind: "official" | "fixture";
@@ -77,6 +77,13 @@ export function validateArea(input: Area): void {
     slug(part?.id);
     validText(part?.name);
   }
+  const reading = input.district.reading;
+  if (
+    reading !== undefined &&
+    (typeof reading !== "string" ||
+      !/^[ぁ-ゖァ-ヶー]+$/u.test(reading.normalize("NFKC")))
+  )
+    throw new Error("Invalid district reading: use hiragana or katakana");
   // These namespaces are reserved for the static website.
   if (
     ["assets", "index", "404", "catalog", "_headers"].includes(
@@ -179,6 +186,8 @@ export function validateIdentities(areas: Area[]): void {
       ],
       [`district${calendarPath(data)}`, data.district.name],
     ];
+    if (data.district.reading !== undefined)
+      identity.push([`reading${calendarPath(data)}`, data.district.reading]);
     for (const [key, name] of identity) {
       if (identities.has(key) && identities.get(key) !== name)
         throw new Error(`Conflicting identity: ${key}`);

@@ -11,6 +11,7 @@
     <title>Gomiwake — いつものカレンダーに、ごみ収集日を。</title>
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/style.css">
+    <script src="/calendar.js" defer></script>
   </head>
   <body>
     <a class="skip" href="#main">本文へ移動</a>
@@ -41,11 +42,17 @@
       </section>
       <section class="areas section" aria-labelledby="areas-title">
         <div class="section-heading">
-          <h2 id="areas-title">対応エリア</h2>
+          <h2 id="areas-title">地区から探す</h2>
         </div>
-        <ul class="supported">
-          %%SUPPORTED%%
-        </ul>
+        <p>
+          地区名を押すと照会URLをコピーできます。カレンダーアプリの「URLで追加」や「照会カレンダー」に貼り付けてください。
+        </p>
+        <div class="supported">%%SUPPORTED%%</div>
+        <noscript>
+          <p>
+            「リンク・収録期間・出典」を開き、照会URLを手動でコピーしてください。
+          </p>
+        </noscript>
       </section>
       %%CATEGORIES%%
       <section class="section" aria-labelledby="how-title">
@@ -57,13 +64,13 @@
           <article>
             <h3>Mac・iPhoneで使う</h3>
             <p>
-              対応エリアに掲載された「Apple
-              Calendarで照会」を押します。開いたアプリで内容を確認し、照会を追加してください。
+              地区名を押して照会URLをコピーし、Macでは「ファイル →
+              新規照会カレンダー」に貼り付けて追加します。
             </p>
             <p>
-              Macでは「ファイル →
-              新規照会カレンダー」にURLを入力する方法もあります。iPhoneでは「カレンダー
-              → カレンダーを追加 → 照会カレンダーを追加」から設定できます。
+              iPhoneでは「カレンダー → カレンダーを追加 →
+              照会カレンダーを追加」から設定できます。「リンク・収録期間・出典」内の「Apple
+              Calendarで照会」から開くこともできます。
             </p>
             <a href="https://support.apple.com/guide/calendar/icl1022/mac"
               >Appleの詳しい手順</a

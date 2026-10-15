@@ -22,7 +22,8 @@ Run `bun run build` before previewing changes. `bun run format` formats source f
 
 ## Features
 
-- Static HTML and CSS with no browser JavaScript; TypeScript for validation and build tools.
+- Static HTML and CSS with a small clipboard script; TypeScript for validation and build tools.
+- Districts grouped by municipality and kana, with one-click copying of subscription URLs and manual links as a fallback.
 - Nine separately modeled Tokorozawa categories, including clothing, small appliances, crushed waste, and hazardous waste.
 - Explicit collection dates with holiday exceptions, multiple categories per day, and Japanese all-day events.
 - Stable district URLs and event UIDs across annual updates; deterministic builds.
@@ -39,7 +40,7 @@ Real schedule records awaiting permission remain outside version control in `.lo
 
 ## Usage / 使い方
 
-After deployment, find published calendar links under supported areas on **https://calendar.motoish.dev**. Request an area through an Issue or contribute verified data through a PR. This domain is the intended deployment target, not a confirmed live service.
+After deployment, browse published districts by municipality and kana on **https://calendar.motoish.dev**. Click a district name to copy its HTTPS subscription URL, then paste it into your calendar app. If copying is unavailable, open リンク・収録期間・出典 to copy the URL manually. Request an area through an Issue or contribute verified data through a PR. This domain is the intended deployment target, not a confirmed live service.
 
 年度を含まないURLを照会するため、新年度も同じURLを使えます。以下は未公開のURL形式の例です。
 

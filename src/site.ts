@@ -51,7 +51,11 @@ export function createCatalog(inputs: unknown[]): CatalogEntry[] {
     entries.push({
       prefecture: first.prefecture,
       municipality: first.municipality,
-      district: first.district,
+      district: {
+        ...first.district,
+        reading: published.find((data) => data.district.reading)?.district
+          .reading,
+      },
       path,
       coverage: published.map((data) => ({
         start: data.source.start,
@@ -71,6 +75,73 @@ function html(value: string): string {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+const kanaGroups = [
+  { id: "a", label: "あ行", initials: "あいうえお" },
+  { id: "ka", label: "か・き", initials: "かき" },
+  { id: "ku", label: "く・け・こ", initials: "くけこ" },
+  { id: "sa", label: "さ行", initials: "さしすせそ" },
+  { id: "ta", label: "た行・な行", initials: "たちつてとなにぬねの" },
+  { id: "ha", label: "は行", initials: "はひふへほ" },
+  { id: "ma", label: "ま行", initials: "まみむめも" },
+  { id: "ya", label: "や行・わ行", initials: "やゆよわゐゑを" },
+  { id: "ra", label: "ら行", initials: "らりるれろ" },
+  { id: "other", label: "その他", initials: "" },
+];
+function districtGroup(entry: CatalogEntry): string {
+  const initial = (entry.district.reading ?? "")
+    .normalize("NFKC")
+    .normalize("NFD")
+    .replace(/[ァ-ヶ]/gu, (char) =>
+      String.fromCharCode(char.charCodeAt(0) - 0x60),
+    )
+    .slice(0, 1);
+  return (
+    kanaGroups.find((group) => initial && group.initials.includes(initial))
+      ?.id ?? "other"
+  );
+}
+function districtItem(entry: CatalogEntry): string {
+  const url = `${origin}${entry.path}`;
+  return `<li class="district"><span data-district-name>${html(entry.district.name)}</span><button type="button" class="copy-calendar" data-calendar-url="${html(url)}" aria-label="${html(`${entry.district.name}の照会URLをコピー`)}" hidden>${html(entry.district.name)}</button><span data-copy-status role="status" aria-live="polite"></span><details class="district-links"><summary>リンク・収録期間・出典</summary><label>照会URL<input type="url" readonly value="${html(url)}"></label><a href="${html(url)}">ICSファイルを開く</a> · <a href="${origin.replace("https:", "webcal:")}${entry.path}">Apple Calendarで照会</a><p>確認済み収録期間</p>${entry.coverage.map((period) => `<p>${period.start}〜${period.end} · 確認日 ${period.verifiedAt} · <a href="${html(period.sourceUrl)}">公式出典</a> · <a href="${html(period.termsUrl)}">利用条件</a></p>`).join("")}</details></li>`;
+}
+function districtDirectory(catalog: CatalogEntry[]): string {
+  if (!catalog.length) return "<p>現在、購読できる地区はありません。</p>";
+  const municipalities = new Map<string, CatalogEntry[]>();
+  for (const entry of catalog) {
+    const entries = municipalities.get(entry.municipality.id) ?? [];
+    entries.push(entry);
+    municipalities.set(entry.municipality.id, entries);
+  }
+  const collator = new Intl.Collator("ja", { numeric: true });
+  return [...municipalities]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([municipalityId, entries]) => {
+      const first = entries[0];
+      const name = `${first.prefecture.name} ${first.municipality.name}`;
+      const groups = kanaGroups
+        .map((group) => ({
+          ...group,
+          entries: entries
+            .filter((entry) => districtGroup(entry) === group.id)
+            .sort(
+              (a, b) =>
+                collator.compare(
+                  a.district.reading ?? a.district.name,
+                  b.district.reading ?? b.district.name,
+                ) || a.path.localeCompare(b.path),
+            ),
+          anchor: `areas-${municipalityId}-${group.id}`,
+        }))
+        .filter((group) => group.entries.length);
+      const index = groups
+        .map(
+          (group) => `<li><a href="#${group.anchor}">${group.label}</a></li>`,
+        )
+        .join("");
+      return `<article class="municipality"><h3>${html(name)}</h3><nav aria-label="${html(`${name}の地区索引`)}"><ul class="kana-index">${index}</ul></nav>${groups.map((group) => `<section class="district-group" aria-labelledby="${group.anchor}"><h4 id="${group.anchor}">${group.label}</h4><ul class="district-list">${group.entries.map(districtItem).join("")}</ul></section>`).join("")}</article>`;
+    })
+    .join("");
 }
 export async function loadData(
   root = new URL("../data/", import.meta.url),
@@ -126,14 +197,7 @@ export async function buildSite(
     new URL("./web/index.html", import.meta.url),
     "utf8",
   );
-  const supported = catalog.length
-    ? catalog
-        .map(
-          (entry) =>
-            `<li><strong>${html(`${entry.prefecture.name} ${entry.municipality.name} ${entry.district.name}`)}</strong><span>確認済み収録期間</span>${entry.coverage.map((period) => `<span>${period.start}〜${period.end} · 確認日 ${period.verifiedAt} · <a href="${html(period.sourceUrl)}">公式出典</a> · <a href="${html(period.termsUrl)}">利用条件</a></span>`).join("")}<a href="${origin}${entry.path}">${origin}${entry.path}</a><a href="${origin.replace("https:", "webcal:")}${entry.path}">Apple Calendarで照会</a></li>`,
-        )
-        .join("")
-    : "<li>現在、購読できる地区はありません。</li>";
+  const supported = districtDirectory(catalog);
   const classifications = [...categoryProfilesInput]
     .sort((a, b) => a.municipality.id.localeCompare(b.municipality.id))
     .map(
