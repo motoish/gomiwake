@@ -1,0 +1,1506 @@
+{
+  "kind": "official",
+  "prefecture": {
+    "id": "saitama",
+    "name": "埼玉県"
+  },
+  "municipality": {
+    "id": "tokorozawa",
+    "name": "所沢市"
+  },
+  "district": {
+    "id": "kamiyamaguchi",
+    "name": "上山口",
+    "reading": "かみやまぐち"
+  },
+  "categories": {
+    "burnable": "🔥 燃やせるごみ",
+    "pet": "🧴 ペットボトル",
+    "plastic": "♻️ 容器包装プラスチック",
+    "clothing": "👕 古着・古布",
+    "appliances": "🔌 小型家電製品",
+    "containers": "🥫 びん・かん・スプレー缶",
+    "paper": "📦 新聞・雑誌・雑がみ・段ボール",
+    "crushed": "🪨 破砕ごみ類",
+    "hazardous": "⚠️ 有害ごみ"
+  },
+  "instructions": "収集日の朝8時30分までに、正しく分けて集積所に出してください。",
+  "source": {
+    "url": "https://www.city.tokorozawa.saitama.jp/kurashi/gomi/nittei/haitai20160309093120619.files/R8kamiyamaguchi.pdf",
+    "start": "2026-04-01",
+    "end": "2027-03-31"
+  },
+  "verification": {
+    "status": "verified",
+    "reviewedAt": "2026-10-15",
+    "note": "利用者承認の一回限りの自動抽出。公式PDF全2ページの365日について日付・分類文字と背景色を独立に照合。全月の日数・曜日配置・空欄を検証。同一画像38種の年末年始を画像で別途照合。週次規則による日程推測なし。原本SHA256と逐日照合記録はローカル監査データに保存。"
+  },
+  "redistribution": {
+    "status": "pending",
+    "reviewedAt": "2026-10-15",
+    "termsUrl": "https://www.city.tokorozawa.saitama.jp/aboutweb/copyrightpolicy.html",
+    "note": "この日程データの公開再配布に適用可能な許諾・利用条件は未確認。ローカル私用のみ。公式PDFの画像・レイアウトは再配布しない。"
+  },
+  "days": [
+    {
+      "date": "2026-04-01",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-04-02",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-04-03",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-04",
+      "categories": []
+    },
+    {
+      "date": "2026-04-05",
+      "categories": []
+    },
+    {
+      "date": "2026-04-06",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-04-07",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-08",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-04-09",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-04-10",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-11",
+      "categories": []
+    },
+    {
+      "date": "2026-04-12",
+      "categories": []
+    },
+    {
+      "date": "2026-04-13",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-04-14",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-15",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-04-16",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-04-17",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-18",
+      "categories": []
+    },
+    {
+      "date": "2026-04-19",
+      "categories": []
+    },
+    {
+      "date": "2026-04-20",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-04-21",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-22",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-04-23",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-04-24",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-25",
+      "categories": []
+    },
+    {
+      "date": "2026-04-26",
+      "categories": []
+    },
+    {
+      "date": "2026-04-27",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-04-28",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-04-29",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-04-30",
+      "categories": []
+    },
+    {
+      "date": "2026-05-01",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-02",
+      "categories": []
+    },
+    {
+      "date": "2026-05-03",
+      "categories": []
+    },
+    {
+      "date": "2026-05-04",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-05-05",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-06",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-05-07",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-05-08",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-09",
+      "categories": []
+    },
+    {
+      "date": "2026-05-10",
+      "categories": []
+    },
+    {
+      "date": "2026-05-11",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-05-12",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-13",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-05-14",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-05-15",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-16",
+      "categories": []
+    },
+    {
+      "date": "2026-05-17",
+      "categories": []
+    },
+    {
+      "date": "2026-05-18",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-05-19",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-20",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-05-21",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-05-22",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-23",
+      "categories": []
+    },
+    {
+      "date": "2026-05-24",
+      "categories": []
+    },
+    {
+      "date": "2026-05-25",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-05-26",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-27",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-05-28",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-05-29",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-05-30",
+      "categories": []
+    },
+    {
+      "date": "2026-05-31",
+      "categories": []
+    },
+    {
+      "date": "2026-06-01",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-06-02",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-03",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-06-04",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-06-05",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-06",
+      "categories": []
+    },
+    {
+      "date": "2026-06-07",
+      "categories": []
+    },
+    {
+      "date": "2026-06-08",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-06-09",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-10",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-06-11",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-06-12",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-13",
+      "categories": []
+    },
+    {
+      "date": "2026-06-14",
+      "categories": []
+    },
+    {
+      "date": "2026-06-15",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-06-16",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-17",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-06-18",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-06-19",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-20",
+      "categories": []
+    },
+    {
+      "date": "2026-06-21",
+      "categories": []
+    },
+    {
+      "date": "2026-06-22",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-06-23",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-24",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-06-25",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-06-26",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-06-27",
+      "categories": []
+    },
+    {
+      "date": "2026-06-28",
+      "categories": []
+    },
+    {
+      "date": "2026-06-29",
+      "categories": []
+    },
+    {
+      "date": "2026-06-30",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-01",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-07-02",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-07-03",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-04",
+      "categories": []
+    },
+    {
+      "date": "2026-07-05",
+      "categories": []
+    },
+    {
+      "date": "2026-07-06",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-07-07",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-08",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-07-09",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-07-10",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-11",
+      "categories": []
+    },
+    {
+      "date": "2026-07-12",
+      "categories": []
+    },
+    {
+      "date": "2026-07-13",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-07-14",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-15",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-07-16",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-07-17",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-18",
+      "categories": []
+    },
+    {
+      "date": "2026-07-19",
+      "categories": []
+    },
+    {
+      "date": "2026-07-20",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-07-21",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-22",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-07-23",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-07-24",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-25",
+      "categories": []
+    },
+    {
+      "date": "2026-07-26",
+      "categories": []
+    },
+    {
+      "date": "2026-07-27",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-07-28",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-07-29",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-07-30",
+      "categories": []
+    },
+    {
+      "date": "2026-07-31",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-01",
+      "categories": []
+    },
+    {
+      "date": "2026-08-02",
+      "categories": []
+    },
+    {
+      "date": "2026-08-03",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-08-04",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-05",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-08-06",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-08-07",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-08",
+      "categories": []
+    },
+    {
+      "date": "2026-08-09",
+      "categories": []
+    },
+    {
+      "date": "2026-08-10",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-08-11",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-12",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-08-13",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-08-14",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-15",
+      "categories": []
+    },
+    {
+      "date": "2026-08-16",
+      "categories": []
+    },
+    {
+      "date": "2026-08-17",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-08-18",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-19",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-08-20",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-08-21",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-22",
+      "categories": []
+    },
+    {
+      "date": "2026-08-23",
+      "categories": []
+    },
+    {
+      "date": "2026-08-24",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-08-25",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-26",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-08-27",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-08-28",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-08-29",
+      "categories": []
+    },
+    {
+      "date": "2026-08-30",
+      "categories": []
+    },
+    {
+      "date": "2026-08-31",
+      "categories": []
+    },
+    {
+      "date": "2026-09-01",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-02",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-09-03",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-09-04",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-05",
+      "categories": []
+    },
+    {
+      "date": "2026-09-06",
+      "categories": []
+    },
+    {
+      "date": "2026-09-07",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-09-08",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-09",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-09-10",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-09-11",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-12",
+      "categories": []
+    },
+    {
+      "date": "2026-09-13",
+      "categories": []
+    },
+    {
+      "date": "2026-09-14",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-09-15",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-16",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-09-17",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-09-18",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-19",
+      "categories": []
+    },
+    {
+      "date": "2026-09-20",
+      "categories": []
+    },
+    {
+      "date": "2026-09-21",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-09-22",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-23",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-09-24",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-09-25",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-26",
+      "categories": []
+    },
+    {
+      "date": "2026-09-27",
+      "categories": []
+    },
+    {
+      "date": "2026-09-28",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-09-29",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-09-30",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-10-01",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-10-02",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-03",
+      "categories": []
+    },
+    {
+      "date": "2026-10-04",
+      "categories": []
+    },
+    {
+      "date": "2026-10-05",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-10-06",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-07",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-10-08",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-10-09",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-10",
+      "categories": []
+    },
+    {
+      "date": "2026-10-11",
+      "categories": []
+    },
+    {
+      "date": "2026-10-12",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-10-13",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-14",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-10-15",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-10-16",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-17",
+      "categories": []
+    },
+    {
+      "date": "2026-10-18",
+      "categories": []
+    },
+    {
+      "date": "2026-10-19",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-10-20",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-21",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-10-22",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-10-23",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-24",
+      "categories": []
+    },
+    {
+      "date": "2026-10-25",
+      "categories": []
+    },
+    {
+      "date": "2026-10-26",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-10-27",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-28",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-10-29",
+      "categories": []
+    },
+    {
+      "date": "2026-10-30",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-10-31",
+      "categories": []
+    },
+    {
+      "date": "2026-11-01",
+      "categories": []
+    },
+    {
+      "date": "2026-11-02",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-11-03",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-04",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-11-05",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-11-06",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-07",
+      "categories": []
+    },
+    {
+      "date": "2026-11-08",
+      "categories": []
+    },
+    {
+      "date": "2026-11-09",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-11-10",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-11",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-11-12",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-11-13",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-14",
+      "categories": []
+    },
+    {
+      "date": "2026-11-15",
+      "categories": []
+    },
+    {
+      "date": "2026-11-16",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-11-17",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-18",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-11-19",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-11-20",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-21",
+      "categories": []
+    },
+    {
+      "date": "2026-11-22",
+      "categories": []
+    },
+    {
+      "date": "2026-11-23",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-11-24",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-25",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-11-26",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-11-27",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-11-28",
+      "categories": []
+    },
+    {
+      "date": "2026-11-29",
+      "categories": []
+    },
+    {
+      "date": "2026-11-30",
+      "categories": []
+    },
+    {
+      "date": "2026-12-01",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-02",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-12-03",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2026-12-04",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-05",
+      "categories": []
+    },
+    {
+      "date": "2026-12-06",
+      "categories": []
+    },
+    {
+      "date": "2026-12-07",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-12-08",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-09",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-12-10",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-12-11",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-12",
+      "categories": []
+    },
+    {
+      "date": "2026-12-13",
+      "categories": []
+    },
+    {
+      "date": "2026-12-14",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-12-15",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-16",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-12-17",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2026-12-18",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-19",
+      "categories": []
+    },
+    {
+      "date": "2026-12-20",
+      "categories": []
+    },
+    {
+      "date": "2026-12-21",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2026-12-22",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-23",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2026-12-24",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2026-12-25",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-26",
+      "categories": []
+    },
+    {
+      "date": "2026-12-27",
+      "categories": []
+    },
+    {
+      "date": "2026-12-28",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2026-12-29",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2026-12-30",
+      "categories": []
+    },
+    {
+      "date": "2026-12-31",
+      "categories": []
+    },
+    {
+      "date": "2027-01-01",
+      "categories": []
+    },
+    {
+      "date": "2027-01-02",
+      "categories": []
+    },
+    {
+      "date": "2027-01-03",
+      "categories": []
+    },
+    {
+      "date": "2027-01-04",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2027-01-05",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-06",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-01-07",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2027-01-08",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-09",
+      "categories": []
+    },
+    {
+      "date": "2027-01-10",
+      "categories": []
+    },
+    {
+      "date": "2027-01-11",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2027-01-12",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-13",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-01-14",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2027-01-15",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-16",
+      "categories": []
+    },
+    {
+      "date": "2027-01-17",
+      "categories": []
+    },
+    {
+      "date": "2027-01-18",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2027-01-19",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-20",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-01-21",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2027-01-22",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-23",
+      "categories": []
+    },
+    {
+      "date": "2027-01-24",
+      "categories": []
+    },
+    {
+      "date": "2027-01-25",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2027-01-26",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-27",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-01-28",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2027-01-29",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-01-30",
+      "categories": []
+    },
+    {
+      "date": "2027-01-31",
+      "categories": []
+    },
+    {
+      "date": "2027-02-01",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2027-02-02",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-03",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-02-04",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2027-02-05",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-06",
+      "categories": []
+    },
+    {
+      "date": "2027-02-07",
+      "categories": []
+    },
+    {
+      "date": "2027-02-08",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2027-02-09",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-10",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-02-11",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2027-02-12",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-13",
+      "categories": []
+    },
+    {
+      "date": "2027-02-14",
+      "categories": []
+    },
+    {
+      "date": "2027-02-15",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2027-02-16",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-17",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-02-18",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2027-02-19",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-20",
+      "categories": []
+    },
+    {
+      "date": "2027-02-21",
+      "categories": []
+    },
+    {
+      "date": "2027-02-22",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2027-02-23",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-24",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-02-25",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2027-02-26",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-02-27",
+      "categories": []
+    },
+    {
+      "date": "2027-02-28",
+      "categories": []
+    },
+    {
+      "date": "2027-03-01",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2027-03-02",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-03",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-03-04",
+      "categories": ["appliances", "clothing"]
+    },
+    {
+      "date": "2027-03-05",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-06",
+      "categories": []
+    },
+    {
+      "date": "2027-03-07",
+      "categories": []
+    },
+    {
+      "date": "2027-03-08",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2027-03-09",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-10",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-03-11",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2027-03-12",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-13",
+      "categories": []
+    },
+    {
+      "date": "2027-03-14",
+      "categories": []
+    },
+    {
+      "date": "2027-03-15",
+      "categories": ["crushed", "hazardous"]
+    },
+    {
+      "date": "2027-03-16",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-17",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-03-18",
+      "categories": ["paper"]
+    },
+    {
+      "date": "2027-03-19",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-20",
+      "categories": []
+    },
+    {
+      "date": "2027-03-21",
+      "categories": []
+    },
+    {
+      "date": "2027-03-22",
+      "categories": ["containers"]
+    },
+    {
+      "date": "2027-03-23",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-24",
+      "categories": ["plastic"]
+    },
+    {
+      "date": "2027-03-25",
+      "categories": ["pet"]
+    },
+    {
+      "date": "2027-03-26",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-27",
+      "categories": []
+    },
+    {
+      "date": "2027-03-28",
+      "categories": []
+    },
+    {
+      "date": "2027-03-29",
+      "categories": []
+    },
+    {
+      "date": "2027-03-30",
+      "categories": ["burnable"]
+    },
+    {
+      "date": "2027-03-31",
+      "categories": ["plastic"]
+    }
+  ]
+}
