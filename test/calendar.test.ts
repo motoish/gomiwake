@@ -23,6 +23,17 @@ test("all-day events retain Japanese dates, exclusive end dates and multiple cat
   assert.ok(!output.includes("RRULE"));
   assert.ok(!output.replaceAll("\r\n", "").includes("\n"));
 });
+test("event descriptions contain only source and verification date", () => {
+  const data = fixture();
+  const output = generate([data]).replaceAll("\r\n ", "");
+  assert.deepEqual(
+    output.match(/^DESCRIPTION:[^\r]+/gm),
+    Array(3).fill(
+      "DESCRIPTION:出典: https://example.com/synthetic-schedule\\n確認日: 2026-10-15",
+    ),
+  );
+  assert.ok(!output.includes(data.instructions));
+});
 test("UIDs survive rebuilds, reordered data and display-name edits", () => {
   const data = fixture();
   const uids = (s: string) => s.match(/UID:[^\r]+/g)?.sort();

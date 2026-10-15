@@ -279,7 +279,7 @@ export function generate(inputs: unknown[]): string {
           `DTSTART;VALUE=DATE:${day.date.replaceAll("-", "")}`,
           `DTEND;VALUE=DATE:${nextDay(day.date).replaceAll("-", "")}`,
           `SUMMARY:${escapeText(data.categories[category])}`,
-          `DESCRIPTION:${escapeText(`${data.instructions}\n出典: ${data.source.url}\n確認日: ${data.verification.reviewedAt}`)}`,
+          `DESCRIPTION:${escapeText(`出典: ${data.source.url}\n確認日: ${data.verification.reviewedAt}`)}`,
           "TRANSP:TRANSPARENT",
           "END:VEVENT",
         );
